@@ -123,7 +123,7 @@ else
     cdgpath="${path_url:1}/"
 fi
 
-ynh_add_config --template="$final_path/compteur/settings_local.py.example" --destination="$final_path/compteur/settings_local.py"
+ynh_add_config --template="../conf/settings_local.py.example" --destination="$final_path/compteur/settings_local.py"
 ynh_add_config --template="../conf/gunicorn_config.py" --destination="$final_path/gunicorn_config.py"
 
 chmod 750 "$final_path"

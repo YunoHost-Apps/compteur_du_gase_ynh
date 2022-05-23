@@ -1,4 +1,4 @@
-SOURCE_URL=https://github.com/Jojo144/compteur_du_gase_ynh/archive/ec83629d6956bd5c215b1ee55c3b5895506ff4dc.tar.gz
+SOURCE_URL=https://github.com/Jojo144/compteur_du_gase/archive/ec83629d6956bd5c215b1ee55c3b5895506ff4dc.tar.gz
 SOURCE_SUM=b8b9e790f2cc0c4fbc9ccffafae880eb7f79e4b8a551471be188a9cdbd90d9da
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
