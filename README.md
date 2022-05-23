@@ -5,7 +5,7 @@ It shall NOT be edited by hand.
 
 # Le compteur du GASE for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Working status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)  
 [![Install Le compteur du GASE with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -15,56 +15,31 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 ## Overview
 
-Some long and extensive description of what the app is and does, lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
-### Features
-
-- Ut enim ad minim veniam, quis nostrud exercitation ullamco ;
-- Laboris nisi ut aliquip ex ea commodo consequat ;
-- Duis aute irure dolor in reprehenderit in voluptate ;
-- Velit esse cillum dolore eu fugiat nulla pariatur ;
-- Excepteur sint occaecat cupidatat non proident, sunt in culpa."
-
+Kitty and stock management software for a GASE (Grocery Service Purchasing Group).
 
 **Shipped version:** 2022.01.21~ynh2
 
-
-
 ## Screenshots
 
-![](./doc/screenshots/Screenshot_2021-12-26_Le-compteur-du-GASE.png)
-
-## Disclaimers / important information
-
-* Any known limitations, constrains or stuff not working, such as (but not limited to):
-    * requiring a full dedicated domain ?
-    * architectures not supported ?
-    * not-working single-sign on or LDAP integration ?
-    * the app requires an important amount of RAM / disk / .. to install or to work properly
-    * etc...
-
-* Other infos that people should be aware of, such as:
-    * any specific step to perform after installing (such as manually finishing the install, specific admin credentials, ...)
-    * how to configure / administrate the application if it ain't obvious
-    * upgrade process / specificities / things to be aware of ?
-    * security considerations ?
+![Screenshot of Le compteur du GASE](./doc/screenshots/Screenshot_2021-12-26_Le-compteur-du-GASE.png)
 
 ## Documentation and resources
 
-* Official app website: https://github.com/Jojo144/compteur_du_gase
-* Upstream app code repository: https://github.com/Jojo144/compteur_du_gase
-* YunoHost documentation for this app: https://yunohost.org/app_compteur_du_gase
-* Report a bug: https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues
+* Official app website: <https://github.com/Jojo144/compteur_du_gase>
+* Upstream app code repository: <https://github.com/Jojo144/compteur_du_gase>
+* YunoHost documentation for this app: <https://yunohost.org/app_compteur_du_gase>
+* Report a bug: <https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues>
 
 ## Developer info
 
 Please send your pull request to the [testing branch](https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
-```
+
+``` bash
 sudo yunohost app install https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing --debug
 or
 sudo yunohost app upgrade compteur_du_gase -u https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing --debug
 ```
 
-**More info regarding app packaging:** https://yunohost.org/packaging_apps
+**More info regarding app packaging:** <https://yunohost.org/packaging_apps>
