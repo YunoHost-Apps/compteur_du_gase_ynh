@@ -24,24 +24,25 @@ app=$YNH_APP_INSTANCE_NAME
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..." --time --weight=1
+ynh_script_progression --message="Loading installation settings..."
 
 # Needed for helper "ynh_add_nginx_config"
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 
 # Add settings here as needed by your application
-#db_name=$(ynh_app_setting_get --app=$app --key=db_name)
-#db_user=$db_name
-#db_pwd=$(ynh_app_setting_get --app=$app --key=db_pwd)
+admin=$(ynh_app_setting_get --app=$app --key=admin)
+admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
+secret=$(ynh_app_setting_get --app=$app --key=secret)
 
 #=================================================
 # BACKUP BEFORE CHANGE URL THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before changing its URL (may take a while)..." --time --weight=1
+ynh_script_progression --message="Backing up the app before changing its URL (may take a while)..."
 
 # Backup the current version of the app
 ynh_backup_before_upgrade
 ynh_clean_setup () {
+	ynh_clean_check_starting
 	# Remove the new domain config file, the remove script won't do it as it doesn't know yet its location.
 	ynh_secure_remove --file="/etc/nginx/conf.d/$new_domain.d/$app.conf"
 
@@ -72,14 +73,14 @@ fi
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping a systemd service..." --time --weight=1
+ynh_script_progression --message="Stopping a systemd service..."
 
-ynh_systemd_action --service_name=$app --action="stop" --log_path="/var/log/$app/$app.log"
+ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 
 #=================================================
 # MODIFY URL IN NGINX CONF
 #=================================================
-ynh_script_progression --message="Updating NGINX web server configuration..." --time --weight=1
+ynh_script_progression --message="Updating NGINX web server configuration..."
 
 nginx_conf_path=/etc/nginx/conf.d/$old_domain.d/$app.conf
 
@@ -108,22 +109,41 @@ fi
 #=================================================
 # SPECIFIC MODIFICATIONS
 #=================================================
-# ...
+# ADD A CONFIGURATION
 #=================================================
+ynh_script_progression --message="Adding a configuration file..."
+
+domain=$new_domain
+path_url=$new_path
+
+if [ "$path_url" = "/" ]
+then
+    cdgpath=""
+else
+    cdgpath="${path_url:1}/"
+fi
+
+ynh_add_config --template="../conf/settings_local.py.example" --destination="$final_path/compteur/settings_local.py"
+ynh_add_config --template="../conf/gunicorn_config.py" --destination="$final_path/gunicorn_config.py"
+
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # GENERIC FINALISATION
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting a systemd service..." --time --weight=1
+ynh_script_progression --message="Starting a systemd service..."
 
-ynh_systemd_action --service_name=$app --action="start" --log_path="/var/log/$app/$app.log"
+# Start a systemd service
+ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="Started"
 
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..." --time --weight=1
+ynh_script_progression --message="Reloading NGINX web server..."
 
 ynh_systemd_action --service_name=nginx --action=reload
 
@@ -131,4 +151,4 @@ ynh_systemd_action --service_name=nginx --action=reload
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Change of URL completed for $app" --time --last
+ynh_script_progression --message="Change of URL completed for $app"
