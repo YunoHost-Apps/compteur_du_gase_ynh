@@ -1,5 +1,5 @@
-SOURCE_URL=https://github.com/Jojo144/compteur_du_gase/archive/ec83629d6956bd5c215b1ee55c3b5895506ff4dc.tar.gz
-SOURCE_SUM=b8b9e790f2cc0c4fbc9ccffafae880eb7f79e4b8a551471be188a9cdbd90d9da
+SOURCE_URL=https://github.com/Jojo144/compteur_du_gase/archive/c7e8c375b71bbd5db9f678ad3c20323ba3097bef.tar.gz
+SOURCE_SUM=696ba4cf32fde6c5cd1a98a2f49e28c45440c5bf8558229a74f359033f8888fa
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
