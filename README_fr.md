@@ -5,28 +5,29 @@ It shall NOT be edited by hand.
 
 # Le compteur du GASE pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+
 [![Installer Le compteur du GASE avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer Le compteur du GASE rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer Le compteur du GASE rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie).
 
 **Version incluse :** 2022.06.09~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de Le compteur du GASE](./doc/screenshots/Screenshot_2021-12-26_Le-compteur-du-GASE.png)
+![Capture d’écran de Le compteur du GASE](./doc/screenshots/Screenshot_2021-12-26_Le-compteur-du-GASE.png)
 
 ## Documentations et ressources
 
-* Site officiel de l'app : <https://github.com/Jojo144/compteur_du_gase>
-* Dépôt de code officiel de l'app : <https://github.com/Jojo144/compteur_du_gase>
+* Site officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
+* Dépôt de code officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_compteur_du_gase>
 * Signaler un bug : <https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues>
 
@@ -42,4 +43,4 @@ ou
 sudo yunohost app upgrade compteur_du_gase -u https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
