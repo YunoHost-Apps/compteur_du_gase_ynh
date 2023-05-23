@@ -35,16 +35,16 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..."
 
-if [ -n "$is_home_public" ]
-then
-	if [[ $is_home_public -eq 1 ]]
-	then
-		ynh_permission_update --permission home_page --add visitors
-	else
-		ynh_permission_update --permission home_page --remove visitors
-	fi
-	ynh_app_setting_delete --app=$app --key=is_home_public
-fi
+#if [ -n "$is_home_public" ]
+#then
+#	if [[ $is_home_public -eq 1 ]]
+#	then
+#		ynh_permission_update --permission home_page --add visitors
+#	else
+#		ynh_permission_update --permission home_page --remove visitors
+#	fi
+#	ynh_app_setting_delete --app=$app --key=is_home_public
+#fi
 
 # MIGRATION : Enable django auth module
 if ! grep -q 'YNH_INTEGRATION_ENABLED = True' $install_dir/compteur/settings_local.py
