@@ -4,7 +4,7 @@ SECRET_KEY = '__SECRET__'
 
 ALLOWED_HOSTS = ['__DOMAIN__']
 
-STATIC_ROOT = '__FINALPATH__/static'
+STATIC_ROOT = '__INSTALL_DIR__/static'
 
 ADMINS = [('Admin du Compteur', '__ADMIN_MAIL__')]
 

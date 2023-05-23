@@ -12,16 +12,16 @@ source /usr/share/yunohost/helpers
 #=================================================
 # LOAD SETTINGS
 #=================================================
-ynh_script_progression --message="Loading installation settings..."
+#REMOVEME? ynh_script_progression --message="Loading installation settings..."
 
-app=$YNH_APP_INSTANCE_NAME
+#REMOVEME? app=$YNH_APP_INSTANCE_NAME
 
-domain=$(ynh_app_setting_get --app=$app --key=domain)
-path_url=$(ynh_app_setting_get --app=$app --key=path)
-admin=$(ynh_app_setting_get --app=$app --key=admin)
-final_path=$(ynh_app_setting_get --app=$app --key=final_path)
+#REMOVEME? domain=$(ynh_app_setting_get --app=$app --key=domain)
+#REMOVEME? path=$(ynh_app_setting_get --app=$app --key=path)
+#REMOVEME? admin=$(ynh_app_setting_get --app=$app --key=admin)
+#REMOVEME? #REMOVEME? install_dir=$(ynh_app_setting_get --app=$app --key=install_dir)
 admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
-secret=$(ynh_app_setting_get --app=$app --key=secret)
+#REMOVEME? secret=$(ynh_app_setting_get --app=$app --key=secret)
 
 #=================================================
 # CHECK VERSION
@@ -33,17 +33,17 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 # BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
+#REMOVEME? ynh_script_progression --message="Backing up the app before upgrading (may take a while)..."
 
 # Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
+#REMOVEME? ynh_backup_before_upgrade
+#REMOVEME? ynh_clean_setup () {
 	ynh_clean_check_starting
 	# Restore it if the upgrade fails
-	ynh_restore_upgradebackup
+#REMOVEME? 	ynh_restore_upgradebackup
 }
 # Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+#REMOVEME? ynh_abort_if_errors
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -60,10 +60,10 @@ ynh_systemd_action --service_name=$app --action="stop" --log_path="systemd"
 ynh_script_progression --message="Ensuring downward compatibility..."
 
 # Cleaning legacy permissions
-if ynh_legacy_permissions_exists
+#REMOVEME? if ynh_legacy_permissions_exists
 then
 	# And URL/sso legacy settings
-	ynh_legacy_permissions_delete_all
+#REMOVEME? 	ynh_legacy_permissions_delete_all
 fi
 
 # We can have no legacy permissions but still need to initialize new ones
@@ -72,32 +72,32 @@ set_initial_permissions
 # MIGRATION : migrate from setting-based permission to new-style permissions
 
 # Get legacy permission settings from settings
-is_home_public=$(ynh_app_setting_get --app=$app --key=is_home_public)
+#REMOVEME? is_home_public=$(ynh_app_setting_get --app=$app --key=is_home_public)
 
 if [ -n "$is_home_public" ]
 then
 	if [[ $is_home_public -eq 1 ]]
 	then
-		ynh_permission_update --permission home_page --add visitors
+#REMOVEME? 		ynh_permission_update --permission home_page --add visitors
 	else
-		ynh_permission_update --permission home_page --remove visitors
+#REMOVEME? 		ynh_permission_update --permission home_page --remove visitors
 	fi
 	ynh_app_setting_delete --app=$app --key=is_home_public
 fi
 
 # MIGRATION : Enable django auth module
-if ! grep -q 'YNH_INTEGRATION_ENABLED = True' $final_path/compteur/settings_local.py
+if ! grep -q 'YNH_INTEGRATION_ENABLED = True' $install_dir/compteur/settings_local.py
 then
-	echo 'YNH_INTEGRATION_ENABLED = True' >> $final_path/compteur/settings_local.py
+	echo 'YNH_INTEGRATION_ENABLED = True' >> $install_dir/compteur/settings_local.py
 fi
 
 #=================================================
 # CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..."
+#REMOVEME? ynh_script_progression --message="Making sure dedicated system user exists..."
 
 # Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app --home_dir="$final_path"
+#REMOVEME? ynh_system_user_create --username=$app --home_dir="$install_dir"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -108,12 +108,12 @@ then
 	ynh_script_progression --message="Upgrading source files..."
 
 	# Download, check integrity, uncompress and patch the source from app.src
-	ynh_setup_source --dest_dir="$final_path" --keep="conf/gunicorn_config.py"
+	ynh_setup_source --dest_dir="$install_dir" --keep="conf/gunicorn_config.py"
 fi
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app:www-data "$install_dir"
 
 #=================================================
 # NGINX CONFIGURATION
@@ -126,9 +126,9 @@ ynh_add_nginx_config
 #=================================================
 # UPGRADE DEPENDENCIES
 #=================================================
-ynh_script_progression --message="Upgrading dependencies..."
+#REMOVEME? ynh_script_progression --message="Upgrading dependencies..."
 
-ynh_install_app_dependencies $pkg_dependencies
+#REMOVEME? ynh_install_app_dependencies $pkg_dependencies
 
 #=================================================
 # SPECIFIC UPGRADE
@@ -137,39 +137,39 @@ ynh_install_app_dependencies $pkg_dependencies
 #=================================================
 ynh_script_progression --message="Adding a configuration file..."
 
-if [ "$path_url" = "/" ]
+if [ "$path" = "/" ]
 then
     cdgpath=""
 else
-    cdgpath="${path_url:1}/"
+    cdgpath="${path:1}/"
 fi
 
-ynh_add_config --template="../conf/settings_local.py.example" --destination="$final_path/compteur/settings_local.py"
-ynh_add_config --template="../conf/gunicorn_config.py" --destination="$final_path/gunicorn_config.py"
+ynh_add_config --template="../conf/settings_local.py.example" --destination="$install_dir/compteur/settings_local.py"
+ynh_add_config --template="../conf/gunicorn_config.py" --destination="$install_dir/gunicorn_config.py"
 
 #=================================================
 # BUILD APP
 #=================================================
 ynh_script_progression --message="Building app..."
 
-pushd $final_path
-	ynh_secure_remove --file="$final_path/venv"
-	python3 -m venv $final_path/venv
+pushd $install_dir
+#REMOVEME? 	ynh_secure_remove --file="$install_dir/venv"
+	python3 -m venv $install_dir/venv
 	set +u;
-	source $final_path/venv/bin/activate
+	source $install_dir/venv/bin/activate
 	set -u;
 	pip install --upgrade pip
 	pip install gunicorn
-	pip install -r $final_path/requirements.txt -r $final_path/requirements-yunohost.txt
+	pip install -r $install_dir/requirements.txt -r $install_dir/requirements-yunohost.txt
 	python3 manage.py migrate --noinput
 	set +u;
 	deactivate
 	set -u;
 popd
 
-chmod 750 "$final_path"
-chmod -R o-rwx "$final_path"
-chown -R $app:www-data "$final_path"
+chmod 750 "$install_dir"
+chmod -R o-rwx "$install_dir"
+chown -R $app:www-data "$install_dir"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -198,9 +198,9 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --l
 #=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading NGINX web server..."
+#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..."
 
-ynh_systemd_action --service_name=nginx --action=reload
+#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
 
 #=================================================
 # END OF SCRIPT

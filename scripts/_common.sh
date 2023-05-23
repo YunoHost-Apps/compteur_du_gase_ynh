@@ -5,7 +5,7 @@
 #=================================================
 
 # dependencies used by the app
-pkg_dependencies="python3-pip python3-virtualenv python3-venv python3-wheel sqlite3 build-essential python3-dev python3-dev libldap2-dev libsasl2-dev ldap-utils"
+#REMOVEME? pkg_dependencies="python3-pip python3-virtualenv python3-venv python3-wheel sqlite3 build-essential python3-dev python3-dev libldap2-dev libsasl2-dev ldap-utils"
 
 #=================================================
 # PERSONAL HELPERS
@@ -14,9 +14,9 @@ pkg_dependencies="python3-pip python3-virtualenv python3-venv python3-wheel sqli
 set_initial_permissions() {
     ynh_permission_url --permission="main" --url="/"
 
-    if ! ynh_permission_exists --permission="home_page"
+#REMOVEME?     if ! ynh_permission_exists --permission="home_page"
     then
-        ynh_permission_create \
+#REMOVEME?         ynh_permission_create \
             --label "Page d\'accueil" \
             --permission="home_page" \
             --url="/$" \
@@ -24,9 +24,9 @@ set_initial_permissions() {
             --allowed="visitors"
     fi
 
-    if ! ynh_permission_exists --permission="admin"
+#REMOVEME?     if ! ynh_permission_exists --permission="admin"
     then
-       ynh_permission_create \
+#REMOVEME?        ynh_permission_create \
            --label "Panneau d\'administration" \
            --permission="admin" \
            --allowed="$admin" \
