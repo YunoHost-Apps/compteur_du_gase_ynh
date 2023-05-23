@@ -6,7 +6,7 @@
         "en": "Kitty and stock management software for a GASE (Grocery Service Purchasing Group).",
         "fr": "Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie)."
     },
-    "version": "2022.06.09~ynh1",
+    "version": "2023.05.02~ynh1",
     "url": "https://github.com/Jojo144/compteur_du_gase",
     "upstream": {
         "license": "WTFPL",
