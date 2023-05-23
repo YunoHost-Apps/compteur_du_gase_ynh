@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # Le compteur du GASE for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Working status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Working status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+
 [![Install Le compteur du GASE with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -17,7 +18,7 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 
 Kitty and stock management software for a GASE (Grocery Service Purchasing Group).
 
-**Shipped version:** 2022.06.09~ynh1
+**Shipped version:** 2023.05.02~ynh1
 
 ## Screenshots
 
