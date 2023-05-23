@@ -16,7 +16,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 ## Vue d’ensemble
 
-Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie).
+Kitty and stock management software for a GASE (Grocery Service Purchasing Group)
 
 **Version incluse :** 2022.06.09~ynh1
 
@@ -26,7 +26,6 @@ Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
 * Dépôt de code officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
 * Documentation YunoHost pour cette app : <https://yunohost.org/app_compteur_du_gase>
 * Signaler un bug : <https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues>
