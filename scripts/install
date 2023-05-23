@@ -112,20 +112,6 @@ ynh_script_progression --message="Starting a systemd service..."
 ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --line_match="Started"
 
 #=================================================
-# SETUP SSOWAT
-#=================================================
-ynh_script_progression --message="Configuring permissions..."
-
-# Choisit un nom pratique pour la tuile (qui peut être changé par la suite) + rend la tuile visible
-#if [ "$YNH_APP_INSTANCE_NUMBER" = "1" ]
-#then
-#    app_label="Le compteur du GASE"
-#else
-#    app_label="Le compteur du GASE $YNH_APP_INSTANCE_NUMBER"
-#fi
-#ynh_permission_update --permission="main" --show_tile=true --label= "$app_label"
-
-#=================================================
 # END OF SCRIPT
 #=================================================
 
