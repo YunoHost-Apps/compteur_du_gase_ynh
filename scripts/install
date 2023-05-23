@@ -101,7 +101,7 @@ ynh_use_logrotate
 #=================================================
 ynh_script_progression --message="Integrating service in YunoHost..."
 
-yunohost service add $app --log /var/log/$app/error.log /var/log/$app/access.log
+yunohost service add $app --description="management software for a GASE" --log="/var/log/$app/$app.log"
 
 #=================================================
 # START SYSTEMD SERVICE
