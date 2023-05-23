@@ -50,12 +50,12 @@ ram.runtime = "50M"
     home_page.url="/$"
     home_page.additional_urls= ["/activité", "/static", "/ynh_auth"]
     home_page.allowed = "visitors"
-    home_page.label = "Page d\'accueil"
+    #home_page.label = "Page d'accueil"
     admin.url = "/"
     admin.allowed = "admins"
     admin.protected = true
     admin.show_tile = false
-    admin.label = "Panneau d\'administration"
+    #admin.label = "Panneau d'administration"
 
     [resources.apt]
     packages = "python3-pip python3-virtualenv python3-venv python3-wheel sqlite3 build-essential python3-dev python3-dev libldap2-dev libsasl2-dev ldap-utils"
