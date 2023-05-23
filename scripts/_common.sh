@@ -4,36 +4,9 @@
 # COMMON VARIABLES
 #=================================================
 
-# dependencies used by the app
-#REMOVEME? pkg_dependencies="python3-pip python3-virtualenv python3-venv python3-wheel sqlite3 build-essential python3-dev python3-dev libldap2-dev libsasl2-dev ldap-utils"
-
 #=================================================
 # PERSONAL HELPERS
 #=================================================
-
-set_initial_permissions() {
-    ynh_permission_url --permission="main" --url="/"
-
-#REMOVEME?     if ! ynh_permission_exists --permission="home_page"
-    then
-#REMOVEME?         ynh_permission_create \
-            --label "Page d\'accueil" \
-            --permission="home_page" \
-            --url="/$" \
-            --additional_urls="/activité" "/static" "/ynh_auth" \
-            --allowed="visitors"
-    fi
-
-#REMOVEME?     if ! ynh_permission_exists --permission="admin"
-    then
-#REMOVEME?        ynh_permission_create \
-           --label "Panneau d\'administration" \
-           --permission="admin" \
-           --allowed="$admin" \
-           --protected=true \
-           --show_tile="false"
-    fi
-}
 
 #=================================================
 # EXPERIMENTAL HELPERS

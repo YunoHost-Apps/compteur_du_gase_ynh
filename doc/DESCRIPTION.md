@@ -1,0 +1,1 @@
+Kitty and stock management software for a GASE (Grocery Service Purchasing Group)

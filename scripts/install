@@ -10,74 +10,22 @@ source _common.sh
 source /usr/share/yunohost/helpers
 
 #=================================================
-# MANAGE SCRIPT FAILURE
-#=================================================
-
-#REMOVEME? ynh_clean_setup () {
-	ynh_clean_check_starting
-}
-# Exit if an error occurs during the execution of the script
-#REMOVEME? ynh_abort_if_errors
-
-#=================================================
 # RETRIEVE ARGUMENTS FROM THE MANIFEST
 #=================================================
 
-#REMOVEME? domain=$YNH_APP_ARG_DOMAIN
-#REMOVEME? path=$YNH_APP_ARG_PATH
-#REMOVEME? admin=$YNH_APP_ARG_ADMIN
 admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
 
-#REMOVEME? app=$YNH_APP_INSTANCE_NAME
-
 secret=$(ynh_string_random 24) # A bug don't allow to do random string bigger than 24
-
-#=================================================
-# CHECK IF THE APP CAN BE INSTALLED WITH THESE ARGS
-#=================================================
-#REMOVEME? ynh_script_progression --message="Validating installation parameters..."
-
-#REMOVEME? install_dir=/opt/$app
-#REMOVEME? test ! -e "$install_dir" || ynh_die --message="This path already contains a folder"
-
-# Register (book) web path
-#REMOVEME? ynh_webpath_register --app=$app --domain=$domain --path=$path
-
-#=================================================
-# STORE SETTINGS FROM MANIFEST
-#=================================================
-#REMOVEME? ynh_script_progression --message="Storing installation settings..."
-
-#REMOVEME? ynh_app_setting_set --app=$app --key=domain --value=$domain
-#REMOVEME? ynh_app_setting_set --app=$app --key=path --value=$path
-#REMOVEME? ynh_app_setting_set --app=$app --key=admin --value=$admin
 ynh_app_setting_set --app=$app --key=secret --value=$secret
-
-#=================================================
-# INSTALL DEPENDENCIES
-#=================================================
-#REMOVEME? ynh_script_progression --message="Installing dependencies..."
-
-#REMOVEME? ynh_install_app_dependencies $pkg_dependencies
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-#REMOVEME? ynh_script_progression --message="Configuring system user..."
-
-# Create a system user
-#REMOVEME? ynh_system_user_create --username=$app --home_dir="$install_dir"
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Setting up source files..."
 
-#REMOVEME? ynh_app_setting_set --app=$app --key=install_dir --value=$install_dir
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir"
 
-chmod 750 "$install_dir"
 chmod -R o-rwx "$install_dir"
 chown -R $app:www-data "$install_dir"
 
@@ -170,7 +118,7 @@ ynh_systemd_action --service_name=$app --action="start" --log_path="systemd" --l
 #=================================================
 # SETUP SSOWAT
 #=================================================
-#REMOVEME? ynh_script_progression --message="Configuring permissions..."
+ynh_script_progression --message="Configuring permissions..."
 
 set_initial_permissions
 
@@ -181,14 +129,7 @@ then
 else
     app_label="Le compteur du GASE $YNH_APP_INSTANCE_NUMBER"
 fi
-#REMOVEME? ynh_permission_update --permission="main" --show_tile=true --label= "$app_label"
-
-#=================================================
-# RELOAD NGINX
-#=================================================
-#REMOVEME? ynh_script_progression --message="Reloading NGINX web server..."
-
-#REMOVEME? ynh_systemd_action --service_name=nginx --action=reload
+ynh_permission_update --permission="main" --show_tile=true --label= "$app_label"
 
 #=================================================
 # END OF SCRIPT
