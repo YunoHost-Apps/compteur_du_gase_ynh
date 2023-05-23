@@ -18,7 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 Kitty and stock management software for a GASE (Grocery Service Purchasing Group)
 
-**Version incluse :** 2022.06.09~ynh1
+**Version incluse :** 2023.05.02~ynh1
 
 ## Captures d’écran
 
