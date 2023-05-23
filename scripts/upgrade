@@ -100,16 +100,12 @@ ynh_script_progression --message="Building app..."
 pushd $install_dir
 #REMOVEME? 	ynh_secure_remove --file="$install_dir/venv"
 	python3 -m venv $install_dir/venv
-	set +u;
 	source $install_dir/venv/bin/activate
-	set -u;
 	pip install --upgrade pip
 	pip install gunicorn
 	pip install -r $install_dir/requirements.txt -r $install_dir/requirements-yunohost.txt
 	python3 manage.py migrate --noinput
-	set +u;
 	deactivate
-	set -u;
 popd
 
 chmod 750 "$install_dir"
