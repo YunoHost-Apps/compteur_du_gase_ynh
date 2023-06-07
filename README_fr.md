@@ -18,7 +18,7 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 
 Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie).
 
-**Version incluse :** 2023.05.02~ynh1
+**Version incluse :** 2023.06.07~ynh1
 
 ## Captures d’écran
 
