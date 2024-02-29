@@ -1,0 +1,77 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "compteur_du_gase"
+name = "Le compteur du GASE"
+description.en = "Kitty and stock management software for a GASE (Grocery Service Purchasing Group)."
+description.fr = "Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie)."
+
+version = "2024.01.14~ynh2"
+
+maintainers = ["jojo144"]
+
+[upstream]
+license = "WTFPL"
+code = "https://github.com/Jojo144/compteur_du_gase"
+
+[integration]
+yunohost = ">= 11.2"
+architectures = "all"
+multi_instance = true
+ldap = true
+sso = false
+disk = "50M"
+ram.build = "50M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.admin]
+    type = "user"
+
+[resources]
+    [resources.sources.main]
+    url = "https://github.com/Jojo144/compteur_du_gase/archive/ce61844b62a5b4447877c9c05830848c0d493d5c.tar.gz"
+    sha256 = "77af2d48bd7ce473bec55b30f06930d8dd463fad07a0296c88d4c09353566151"
+
+    autoupdate.strategy = "latest_github_commit"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+    main.additional_urls = ["/activité", "/static", "/ynh_auth"]
+
+    # admin.url = ""
+    admin.label = "Panneau d'administration"
+    admin.allowed = "admins"
+    admin.show_tile = false
+    admin.protected = true
+
+    [resources.apt]
+    packages = [
+        "python3-pip",
+        "python3-virtualenv",
+        "python3-venv",
+        "python3-wheel",
+        "sqlite3",
+        "build-essential",
+        "python3-dev",
+        "python3-dev",
+        "libldap2-dev",
+        "libsasl2-dev",
+        "ldap-utils",
+    ]
