@@ -40,6 +40,12 @@ if ! grep -q 'YNH_INTEGRATION_ENABLED = True' "$install_dir/sources/compteur/set
     echo 'YNH_INTEGRATION_ENABLED = True' >> "$install_dir/sources/compteur/settings_local.py"
 fi
 
+# Move sources to subdir
+if [ ! -d "$install_dir/sources" ]; then
+    mkdir "$install_dir/sources"
+    find . -mindepth 1 -maxdepth 1 ! -name "sources" -exec mv -t sources "{}" +
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
@@ -72,7 +78,6 @@ ynh_script_progression --message="Building app..."
 
 _venv_install
 
-#REMOVEME? 	ynh_secure_remove --file="$install_dir/venv"
 pushd "$install_dir/sources"
     ynh_exec_as "$app" "$venvpy" -m pip install gunicorn
     ynh_exec_as "$app" "$venvpy" -m pip install -r requirements.txt -r requirements-yunohost.txt
