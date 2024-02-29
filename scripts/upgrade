@@ -101,6 +101,7 @@ yunohost service add "$app" --log "/var/log/$app/error.log" "/var/log/$app/acces
 
 # Use logrotate to manage app-specific logfile(s)
 ynh_use_logrotate --non-append
+chown -R "$app:www-data" "/var/log/$app"
 
 #=================================================
 # START SYSTEMD SERVICE
