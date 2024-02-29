@@ -13,7 +13,6 @@ maintainers = ["jojo144"]
 
 [upstream]
 license = "WTFPL"
-website = "https://github.com/Jojo144/compteur_du_gase"
 code = "https://github.com/Jojo144/compteur_du_gase"
 
 [integration]

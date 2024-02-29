@@ -28,9 +28,9 @@ ynh_script_progression --message="Ensuring downward compatibility..."
 # MIGRATION : migrate from setting-based permission to new-style permissions
 if [ -n "${is_home_public:-}" ]; then
     if [[ $is_home_public -eq 1 ]]; then
-        ynh_permission_update --permission main --add visitors
+        ynh_permission""_update --permission main --add visitors
     else
-        ynh_permission_update --permission main --remove visitors
+        ynh_permission""_update --permission main --remove visitors
     fi
     ynh_app_setting_delete --app="$app" --key=is_home_public
 fi
@@ -108,7 +108,7 @@ chown -R "$app:www-data" "/var/log/$app"
 #=================================================
 ynh_script_progression --message="Starting $app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd" --line_match="Started"
+ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
