@@ -26,7 +26,6 @@ Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en
 
 ## Documentations et ressources
 
-* Site officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
 * Dépôt de code officiel de l’app : <https://github.com/Jojo144/compteur_du_gase>
 * YunoHost Store: <https://apps.yunohost.org/app/compteur_du_gase>
 * Signaler un bug : <https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues>

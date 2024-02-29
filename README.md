@@ -26,7 +26,6 @@ Kitty and stock management software for a GASE (Grocery Service Purchasing Group
 
 ## Documentation and resources
 
-* Official app website: <https://github.com/Jojo144/compteur_du_gase>
 * Upstream app code repository: <https://github.com/Jojo144/compteur_du_gase>
 * YunoHost Store: <https://apps.yunohost.org/app/compteur_du_gase>
 * Report a bug: <https://github.com/YunoHost-Apps/compteur_du_gase_ynh/issues>
