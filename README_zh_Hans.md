@@ -5,7 +5,7 @@
 
 # YunoHost 上的 Le compteur du GASE
 
-[![集成程度](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![工作状态](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![集成程度](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![工作状态](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
 
 [![使用 YunoHost 安装 Le compteur du GASE](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 

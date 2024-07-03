@@ -5,7 +5,7 @@ Il NE doit PAS être modifié à la main.
 
 # Le compteur du GASE pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://dash.yunohost.org/appci/app/compteur_du_gase) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Niveau d’intégration](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
 
 [![Installer Le compteur du GASE avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
