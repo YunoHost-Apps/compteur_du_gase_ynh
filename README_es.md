@@ -18,7 +18,7 @@ No se debe editar a mano.
 
 
 
-**Versión actual:** 2024.01.14~ynh2
+**Versión actual:** 2024.11.11~ynh1
 
 ## Capturas
 
@@ -32,7 +32,7 @@ No se debe editar a mano.
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 

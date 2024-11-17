@@ -18,7 +18,7 @@ Il NE doit PAS être modifié à la main.
 
 Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie).
 
-**Version incluse :** 2024.01.14~ynh2
+**Version incluse :** 2024.11.11~ynh1
 
 ## Captures d’écran
 

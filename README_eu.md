@@ -18,7 +18,7 @@ EZ editatu eskuz.
 
 
 
-**Paketatutako bertsioa:** 2024.01.14~ynh2
+**Paketatutako bertsioa:** 2024.11.11~ynh1
 
 ## Pantaila-argazkiak
 

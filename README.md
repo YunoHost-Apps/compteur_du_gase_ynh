@@ -18,7 +18,7 @@ It shall NOT be edited by hand.
 
 Kitty and stock management software for a GASE (Grocery Service Purchasing Group).
 
-**Shipped version:** 2024.01.14~ynh2
+**Shipped version:** 2024.11.11~ynh1
 
 ## Screenshots
 
