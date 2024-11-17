@@ -7,7 +7,7 @@ name = "Le compteur du GASE"
 description.en = "Kitty and stock management software for a GASE (Grocery Service Purchasing Group)."
 description.fr = "Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie)."
 
-version = "2024.01.14~ynh2"
+version = "2024.11.11~ynh1"
 
 maintainers = ["jojo144"]
 
@@ -42,8 +42,8 @@ ram.runtime = "50M"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/Jojo144/compteur_du_gase/archive/ce61844b62a5b4447877c9c05830848c0d493d5c.tar.gz"
-    sha256 = "77af2d48bd7ce473bec55b30f06930d8dd463fad07a0296c88d4c09353566151"
+    url = "https://github.com/Jojo144/compteur_du_gase/archive/bdbc2e21c50569ba4763cca8ae4af82ea419a040.tar.gz"
+    sha256 = "381e3518d8275a95768524e31db62e48a0cc6c4740acd4efac813a4b86342368"
 
     autoupdate.strategy = "latest_github_commit"
 
