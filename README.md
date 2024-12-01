@@ -5,7 +5,9 @@ It shall NOT be edited by hand.
 
 # Le compteur du GASE for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Working status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Integration level](https://apps.yunohost.org/badge/integration/compteur_du_gase)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/)
+![Working status](https://apps.yunohost.org/badge/state/compteur_du_gase)
+![Maintenance status](https://apps.yunohost.org/badge/maintained/compteur_du_gase)
 
 [![Install Le compteur du GASE with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
@@ -18,7 +20,7 @@ It shall NOT be edited by hand.
 
 Kitty and stock management software for a GASE (Grocery Service Purchasing Group).
 
-**Shipped version:** 2024.01.14~ynh2
+**Shipped version:** 2024.11.25~ynh1
 
 ## Screenshots
 

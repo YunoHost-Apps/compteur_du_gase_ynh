@@ -5,7 +5,9 @@ Il NE doit PAS être modifié à la main.
 
 # Le compteur du GASE pour YunoHost
 
-[![Niveau d’intégration](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Niveau d’intégration](https://apps.yunohost.org/badge/integration/compteur_du_gase)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/)
+![Statut du fonctionnement](https://apps.yunohost.org/badge/state/compteur_du_gase)
+![Statut de maintenance](https://apps.yunohost.org/badge/maintained/compteur_du_gase)
 
 [![Installer Le compteur du GASE avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
@@ -18,7 +20,7 @@ Il NE doit PAS être modifié à la main.
 
 Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie).
 
-**Version incluse :** 2024.01.14~ynh2
+**Version incluse :** 2024.11.25~ynh1
 
 ## Captures d’écran
 
