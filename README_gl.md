@@ -5,7 +5,9 @@ NON debe editarse manualmente.
 
 # Le compteur du GASE para YunoHost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Estado de funcionamento](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Estado de mantemento](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/compteur_du_gase)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/)
+![Estado de funcionamento](https://apps.yunohost.org/badge/state/compteur_du_gase)
+![Estado de mantemento](https://apps.yunohost.org/badge/maintained/compteur_du_gase)
 
 [![Instalar Le compteur du GASE con YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
@@ -18,7 +20,7 @@ NON debe editarse manualmente.
 
 
 
-**Versión proporcionada:** 2024.01.14~ynh2
+**Versión proporcionada:** 2024.12.04~ynh1
 
 ## Capturas de pantalla
 
