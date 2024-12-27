@@ -5,7 +5,9 @@ EZ editatu eskuz.
 
 # Le compteur du GASE YunoHost-erako
 
-[![Integrazio maila](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Funtzionamendu egoera](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Mantentze egoera](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/compteur_du_gase)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/compteur_du_gase)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/compteur_du_gase)
 
 [![Instalatu Le compteur du GASE YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
@@ -18,7 +20,7 @@ EZ editatu eskuz.
 
 
 
-**Paketatutako bertsioa:** 2024.01.14~ynh2
+**Paketatutako bertsioa:** 2024.12.04~ynh1
 
 ## Pantaila-argazkiak
 

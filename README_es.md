@@ -5,7 +5,9 @@ No se debe editar a mano.
 
 # Le compteur du GASE para Yunohost
 
-[![Nivel de integración](https://dash.yunohost.org/integration/compteur_du_gase.svg)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/) ![Estado funcional](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.status.svg) ![Estado En Mantención](https://ci-apps.yunohost.org/ci/badges/compteur_du_gase.maintain.svg)
+[![Nivel de integración](https://apps.yunohost.org/badge/integration/compteur_du_gase)](https://ci-apps.yunohost.org/ci/apps/compteur_du_gase/)
+![Estado funcional](https://apps.yunohost.org/badge/state/compteur_du_gase)
+![Estado En Mantención](https://apps.yunohost.org/badge/maintained/compteur_du_gase)
 
 [![Instalar Le compteur du GASE con Yunhost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=compteur_du_gase)
 
@@ -18,7 +20,7 @@ No se debe editar a mano.
 
 
 
-**Versión actual:** 2024.01.14~ynh2
+**Versión actual:** 2024.12.04~ynh1
 
 ## Capturas
 
@@ -32,7 +34,7 @@ No se debe editar a mano.
 
 ## Información para desarrolladores
 
-Por favor enviar sus correcciones a la [`branch testing`](https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing
+Por favor enviar sus correcciones a la [rama `testing`](https://github.com/YunoHost-Apps/compteur_du_gase_ynh/tree/testing).
 
 Para probar la rama `testing`, sigue asÍ:
 
