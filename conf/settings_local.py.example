@@ -1,3 +1,5 @@
+import os.path
+
 DEBUG = False
 
 SECRET_KEY = '__SECRET__'
@@ -15,3 +17,10 @@ STATIC_URL = '/__CDGPATH__static/'
 YUNOHOST_APP_ID = '__APP__'
 
 YNH_INTEGRATION_ENABLED = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join('__INSTALL_DIR__', 'db.sqlite3'),
+    }
+}
