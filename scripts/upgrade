@@ -46,6 +46,11 @@ if [ ! -d "$install_dir/sources" ]; then
     find . -mindepth 1 -maxdepth 1 ! -name "sources" -exec mv -t "$install_dir/sources" "{}" +
 fi
 
+# Move database out of sources dir (avoid to overwrite it on upgrade…)
+if [ -f $install_dir/sources/db.sqlite3 ]; then
+    mv $install_dir/sources/db.sqlite3 $data_dir/db.sqlite3
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
