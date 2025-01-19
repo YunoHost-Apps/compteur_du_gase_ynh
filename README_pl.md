@@ -20,7 +20,7 @@ Nie powinno być ono edytowane ręcznie.
 
 
 
-**Dostarczona wersja:** 2024.12.04~ynh1
+**Dostarczona wersja:** 2025.01.17~ynh1
 
 ## Zrzuty ekranu
 
