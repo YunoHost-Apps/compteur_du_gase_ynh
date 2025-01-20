@@ -67,7 +67,7 @@ ram.runtime = "50M"
 
     main.url = "/"
     # Just a random string to workaround https://github.com/YunoHost/issues/issues/2516
-    main.additional_urls = ["bu6moh3ooNgu1eteng8b"]
+    main.additional_urls = ["/bu6moh3ooNgu1eteng8b"]
 
     admin.url = "/admin"
     admin.label = "Panneau d'administration"
