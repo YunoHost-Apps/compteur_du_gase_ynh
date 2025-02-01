@@ -11,6 +11,7 @@ source /usr/share/yunohost/helpers
 # INITIALIZE AND STORE SETTINGS
 #=================================================
 
+# used in template settings_local.py.example to replace __ADMIN_MAIL__
 admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
 
 secret=$(ynh_string_random 24) # A bug don't allow to do random string bigger than 24
