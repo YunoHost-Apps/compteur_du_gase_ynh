@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#=================================================
-# IMPORT GENERIC HELPERS
-#=================================================
-
 source _common.sh
 source /usr/share/yunohost/helpers
 
@@ -21,11 +17,8 @@ ynh_app_setting_set --key=secret --value="$secret"
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-# Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$install_dir/sources"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
@@ -54,34 +47,27 @@ pushd "$install_dir/sources"
     ynh_exec_as_app "$venvpy" manage.py migrate --noinput
     ynh_exec_as_app "$venvpy" manage.py collectstatic --noinput
 
-    echo "UPDATE base_localsettings SET mail_from = 'Le compteur du GASE <le-compteur@$domain>';" |  ynh_exec_as_app "$venvpy" manage.py dbshell
+    echo "UPDATE base_localsettings SET mail_from = 'Le compteur du GASE <le-compteur@$domain>';" | ynh_exec_as_app "$venvpy" manage.py dbshell
     ynh_exec_as_app "$venvpy" manage.py loaddata initial_database.json
 popd
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
 ynh_script_progression "Adding system configurations related to $app..."
 
-# Create a dedicated NGINX config
 ynh_config_add_nginx
 
-# Create a dedicated systemd config
 ynh_config_add_systemd
 yunohost service add "$app" --log "/var/log/$app/error.log" "/var/log/$app/access.log"
 
-# Use logrotate to manage application logfile(s)
 ynh_config_add_logrotate
-#REMOVEME? Assuming ynh_config_add_logrotate is called, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "/var/log/$app"
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service="$app" --action="start" --log_path="systemd"
 
 #=================================================

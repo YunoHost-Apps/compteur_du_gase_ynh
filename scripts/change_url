@@ -33,14 +33,11 @@ fi
 ynh_config_add --template="settings_local.py.example" --destination="$install_dir/sources/compteur/settings_local.py"
 ynh_config_add --template="gunicorn_config.py" --destination="$install_dir/sources/gunicorn_config.py"
 
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chmod -R o-rwx "$install_dir"
-#REMOVEME? Assuming the install dir is setup using ynh_setup_source, the proper chmod/chowns are now already applied and it shouldn't be necessary to tweak perms | chown -R "$app:www-data" "$install_dir"
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-# Start a systemd service
 ynh_systemctl --service="$app" --action="start"
 
 #=================================================
