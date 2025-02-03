@@ -37,6 +37,14 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
+    [install.init_home_page_permission]
+    type = "group"
+    default = "visitors"
+    ask.en = "Who should have access the *home page*?"
+    help.en = "Setting this to « visitors » and main permission to a restricted group allows anonymous users to view only the home page with next permanences. Phone/emails will be hidden from anonymous users."
+    ask.fr = "Qui doit pouvoir accéder à la page d'accueil ?"
+    help.fr = "Répondre « visitors » et être plus restrictif pour la permission d'accès principale permet de ne donner un accès public qu'à la page d'accueil, qui contient la liste des permanences.  Les emails et téléphones seront dans tous les cas masqués pour les utilisateurs anonymes."
+
     [install.admin]
     type = "user"
 
@@ -54,10 +62,16 @@ ram.runtime = "50M"
     [resources.install_dir]
 
     [resources.permissions]
-    main.url = "/"
-    main.additional_urls = ["/activité", "/static", "/ynh_auth"]
+    home_page.url = "re:/$"
+    home_page.additional_urls = ["/activité", "/static", "/ynh_auth"]
+    home_page.allowed = "visitors"
+    home_page.show_tile = false
 
-    # admin.url = ""
+    main.url = "/"
+    # Just a random string to workaround https://github.com/YunoHost/issues/issues/2516
+    main.additional_urls = ["/bu6moh3ooNgu1eteng8b"]
+
+    admin.url = "/admin"
     admin.label = "Panneau d'administration"
     admin.allowed = "admins"
     admin.show_tile = false
