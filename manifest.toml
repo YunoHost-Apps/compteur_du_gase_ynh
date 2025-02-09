@@ -7,7 +7,7 @@ name = "Le compteur du GASE"
 description.en = "Kitty and stock management software for a GASE (Grocery Service Purchasing Group)."
 description.fr = "Logiciel de gestion de cagnottes et de stock pour un GASE (Groupement d'Achat en Service Épicerie)."
 
-version = "2024.12.04~ynh1"
+version = "2025.02.04~ynh1"
 
 maintainers = ["jojo144"]
 
@@ -20,7 +20,7 @@ yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
 ldap = true
-sso = false
+sso = true
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -37,25 +37,41 @@ ram.runtime = "50M"
     type = "group"
     default = "visitors"
 
+    [install.init_home_page_permission]
+    type = "group"
+    default = "visitors"
+    ask.en = "Who should have access the *home page*?"
+    help.en = "Setting this to « visitors » and main permission to a restricted group allows anonymous users to view only the home page with next permanences. Phone/emails will be hidden from anonymous users."
+    ask.fr = "Qui doit pouvoir accéder à la page d'accueil ?"
+    help.fr = "Répondre « visitors » et être plus restrictif pour la permission d'accès principale permet de ne donner un accès public qu'à la page d'accueil, qui contient la liste des permanences.  Les emails et téléphones seront dans tous les cas masqués pour les utilisateurs anonymes."
+
     [install.admin]
     type = "user"
 
 [resources]
     [resources.sources.main]
-    url = "https://github.com/Jojo144/compteur_du_gase/archive/0a41bdeab87a292292850975390a24b3b085da3f.tar.gz"
-    sha256 = "ae34caf884fc0eb2ca9a8ded66d16d349b874831e70512e46dda6ddf12c67ce0"
+    url = "https://github.com/Jojo144/compteur_du_gase/archive/4527a13cc0289b3d98f9a96b582600cc769534fd.tar.gz"
+    sha256 = "7447a387261c892051faf38ca3cb0557c639d516f776a7df0298e893ebd6de0f"
 
     autoupdate.strategy = "latest_github_commit"
 
     [resources.system_user]
 
+    [resources.data_dir]
+
     [resources.install_dir]
 
     [resources.permissions]
-    main.url = "/"
-    main.additional_urls = ["/activité", "/static", "/ynh_auth"]
+    home_page.url = "re:/$"
+    home_page.additional_urls = ["/activité", "/static", "/ynh_auth"]
+    home_page.allowed = "visitors"
+    home_page.show_tile = false
 
-    # admin.url = ""
+    main.url = "/"
+    # Just a random string to workaround https://github.com/YunoHost/issues/issues/2516
+    main.additional_urls = ["/bu6moh3ooNgu1eteng8b"]
+
+    admin.url = "/admin"
     admin.label = "Panneau d'administration"
     admin.allowed = "admins"
     admin.show_tile = false
