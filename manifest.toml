@@ -20,7 +20,7 @@ yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
 ldap = true
-sso = false
+sso = true
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"
@@ -48,6 +48,8 @@ ram.runtime = "50M"
     autoupdate.strategy = "latest_github_commit"
 
     [resources.system_user]
+
+    [resources.data_dir]
 
     [resources.install_dir]
 

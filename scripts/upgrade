@@ -46,13 +46,18 @@ if [ ! -d "$install_dir/sources" ]; then
     find . -mindepth 1 -maxdepth 1 ! -name "sources" -exec mv -t "$install_dir/sources" "{}" +
 fi
 
+# Move database out of sources dir (avoid to overwrite it on upgrade…)
+if [ -f $install_dir/sources/db.sqlite3 ]; then
+    mv $install_dir/sources/db.sqlite3 $data_dir/db.sqlite3
+fi
+
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression --message="Upgrading source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir/sources" --full_replace=1 --keep="conf/gunicorn_config.py"
+ynh_setup_source --dest_dir="$install_dir/sources" --full_replace=1
 
 chmod -R o-rwx "$install_dir"
 chown -R "$app:www-data" "$install_dir"
