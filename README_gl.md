@@ -20,7 +20,7 @@ NON debe editarse manualmente.
 
 
 
-**Versión proporcionada:** 2025.02.13~ynh1
+**Versión proporcionada:** 2025.03.01~ynh1
 
 ## Capturas de pantalla
 
