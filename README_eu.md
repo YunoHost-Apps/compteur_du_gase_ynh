@@ -20,7 +20,7 @@ EZ editatu eskuz.
 
 
 
-**Paketatutako bertsioa:** 2025.02.04~ynh1
+**Paketatutako bertsioa:** 2025.03.01~ynh1
 
 ## Pantaila-argazkiak
 

@@ -20,7 +20,7 @@ Ini TIDAK boleh diedit dengan tangan.
 
 
 
-**Versi terkirim:** 2025.02.04~ynh1
+**Versi terkirim:** 2025.03.01~ynh1
 
 ## Tangkapan Layar
 
