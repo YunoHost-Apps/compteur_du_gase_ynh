@@ -16,14 +16,14 @@ admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
 #=================================================
 # STOP SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Stopping $app's systemd service..."
+ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="stop" --log_path="systemd"
+ynh_systemctl --service="$app" --action="stop" --log_path="systemd"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
-ynh_script_progression --message="Ensuring downward compatibility..."
+ynh_script_progression "Ensuring downward compatibility..."
 
 # MIGRATION : migrate from setting-based permission to new-style permissions
 if [ -n "${is_home_public:-}" ]; then
@@ -32,7 +32,7 @@ if [ -n "${is_home_public:-}" ]; then
     else
         ynh_permission""_update --permission main --remove visitors
     fi
-    ynh_app_setting_delete --app="$app" --key=is_home_public
+    ynh_app_setting_delete --key=is_home_public
 fi
 
 # MIGRATION : Enable django auth module
@@ -54,18 +54,15 @@ fi
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
-ynh_script_progression --message="Upgrading source files..."
+ynh_script_progression "Upgrading source files..."
 
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source --dest_dir="$install_dir/sources" --full_replace=1
-
-chmod -R o-rwx "$install_dir"
-chown -R "$app:www-data" "$install_dir"
+ynh_setup_source --dest_dir="$install_dir/sources" --full_replace
 
 #=================================================
 # ADD A CONFIGURATION
 #=================================================
-ynh_script_progression --message="Adding a configuration file..."
+ynh_script_progression "Adding $app's configuration..."
 
 if [ "$path" = "/" ]; then
     cdgpath=""
@@ -73,21 +70,21 @@ else
     cdgpath="${path:1}/"
 fi
 
-ynh_add_config --template="settings_local.py.example" --destination="$install_dir/sources/compteur/settings_local.py"
-ynh_add_config --template="gunicorn_config.py" --destination="$install_dir/sources/gunicorn_config.py"
+ynh_config_add --template="settings_local.py.example" --destination="$install_dir/sources/compteur/settings_local.py"
+ynh_config_add --template="gunicorn_config.py" --destination="$install_dir/sources/gunicorn_config.py"
 
 #=================================================
 # BUILD APP
 #=================================================
-ynh_script_progression --message="Building app..."
+ynh_script_progression "Building app..."
 
 _venv_install
 
 pushd "$install_dir/sources"
-    ynh_exec_as "$app" "$venvpy" -m pip install gunicorn
-    ynh_exec_as "$app" "$venvpy" -m pip install -r requirements.txt -r requirements-yunohost.txt
+    ynh_exec_as_app "$venvpy" -m pip install gunicorn
+    ynh_exec_as_app "$venvpy" -m pip install -r requirements.txt -r requirements-yunohost.txt
 
-    ynh_exec_as "$app" "$venvpy" manage.py migrate --noinput
+    ynh_exec_as_app "$venvpy" manage.py migrate --noinput
 popd
 
 chmod -R o-rwx "$install_dir"
@@ -96,27 +93,26 @@ chown -R $app:www-data "$install_dir"
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
-ynh_script_progression --message="Upgrading system configurations related to $app..." --weight=1
+ynh_script_progression "Upgrading system configurations related to $app..."
 
 # Create a dedicated NGINX config
-ynh_add_nginx_config
+ynh_config_add_nginx
 
-ynh_add_systemd_config
+ynh_config_add_systemd
 yunohost service add "$app" --log "/var/log/$app/error.log" "/var/log/$app/access.log"
 
 # Use logrotate to manage app-specific logfile(s)
-ynh_use_logrotate --non-append
-chown -R "$app:www-data" "/var/log/$app"
+ynh_config_add_logrotate
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
-ynh_script_progression --message="Starting $app's systemd service..."
+ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemd_action --service_name="$app" --action="start" --log_path="systemd"
+ynh_systemctl --service="$app" --action="start" --log_path="systemd"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
 
-ynh_script_progression --message="Upgrade of $app completed"
+ynh_script_progression "Upgrade of $app completed"
