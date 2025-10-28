@@ -25,16 +25,6 @@ ynh_systemctl --service="$app" --action="stop" --log_path="systemd"
 #=================================================
 ynh_script_progression "Ensuring downward compatibility..."
 
-# MIGRATION : migrate from setting-based permission to new-style permissions
-if [ -n "${is_home_public:-}" ]; then
-    if [[ $is_home_public -eq 1 ]]; then
-        ynh_permission""_update --permission main --add visitors
-    else
-        ynh_permission""_update --permission main --remove visitors
-    fi
-    ynh_app_setting_delete --key=is_home_public
-fi
-
 # MIGRATION : Enable django auth module
 if ! grep -q 'YNH_INTEGRATION_ENABLED = True' "$install_dir/sources/compteur/settings_local.py"; then
     echo 'YNH_INTEGRATION_ENABLED = True' >> "$install_dir/sources/compteur/settings_local.py"
