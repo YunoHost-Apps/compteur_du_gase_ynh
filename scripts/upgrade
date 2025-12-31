@@ -18,7 +18,7 @@ admin_mail=$(ynh_user_get_info --username="$admin" --key=mail)
 #=================================================
 ynh_script_progression "Stopping $app's systemd service..."
 
-ynh_systemctl --service="$app" --action="stop" --log_path="systemd"
+ynh_systemctl --service="$app" --action="stop"
 
 #=================================================
 # ENSURE DOWNWARD COMPATIBILITY
@@ -73,7 +73,6 @@ _venv_install
 pushd "$install_dir/sources"
     ynh_exec_as_app "$venvpy" -m pip install gunicorn
     ynh_exec_as_app "$venvpy" -m pip install -r requirements.txt -r requirements-yunohost.txt
-
     ynh_exec_as_app "$venvpy" manage.py migrate --noinput
 popd
 
@@ -99,7 +98,7 @@ ynh_config_add_logrotate
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service="$app" --action="start" --log_path="systemd"
+ynh_systemctl --service="$app" --action="start"
 
 #=================================================
 # END OF SCRIPT
