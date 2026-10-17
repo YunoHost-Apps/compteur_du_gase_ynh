@@ -1,0 +1,1 @@
+Le compteur du GASE est une application web qui permet de gérer les cagnottes et le stock d'un GASE (*Groupement d'Achat en Service Épicerie*), une épicerie en groupement d'achat tenue par ses membres.
