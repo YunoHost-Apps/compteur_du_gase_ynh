@@ -1,0 +1,1 @@
+Le compteur du GASE is a web application to manage the kitties and the stock of a GASE (*Groupement d'Achat en Service Épicerie*, "Grocery Service Purchasing Group" in English; a grocery purchasing group run by its members).
