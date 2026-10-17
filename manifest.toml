@@ -16,7 +16,7 @@ license = "WTFPL"
 code = "https://github.com/Jojo144/compteur_du_gase"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.40"
 helpers_version = "2.1"
 architectures = "all"
 multi_instance = true
